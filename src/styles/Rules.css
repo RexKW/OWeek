@@ -1,0 +1,20 @@
+.rules{
+
+}
+
+.ruleBox{
+    justify-content: center;
+    width: 50%;
+    margin: auto;
+}
+
+.ruleContent{
+    background-color: gray;
+}
+
+@media(max-width:1000px){
+    .ruleBox{
+        width: 75%;
+    }
+}
+

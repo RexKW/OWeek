@@ -1,0 +1,29 @@
+.schedule{
+    height: 200vh;
+}
+
+.topContainer{
+    background-color: gray;
+    height: 400px;
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    display: flex;
+    position: relative;
+
+}
+
+.bottomContainer{
+    height: 50%;
+    margin:8%;
+    background-color: gray;
+}
+
+.dayCard{
+    background-color: rgb(255, 0, 0);
+    height: 400px;
+    margin-left: 0px;
+    display: flex;
+    width: 700px;
+    
+}

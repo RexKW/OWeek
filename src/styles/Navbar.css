@@ -1,0 +1,200 @@
+.navbar{
+    background-color: #FFFFE5;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    height: 10vh;
+    
+}
+.left{
+    display: flex;
+    flex-basis: 50%;
+    margin-left: 2%;
+}
+
+.right{
+    align-items: center;
+    justify-content: end;
+    display: flex;
+    flex-basis: 50%;
+    margin-right: 5%;
+    gap: 10%;
+    text-decoration: none;
+    color: white;
+}
+
+.stripe{
+    background-image: linear-gradient(#A7213C, #B82038);
+    height: 10vh;
+    width: 200px;
+}
+
+.bg{
+    height: 10vh;
+    overflow-x: hidden;
+    
+}
+
+.burger{
+    color: rgba(255, 209, 47, 1);
+    width: 40px;
+    height: auto;
+}
+.right a{
+    text-decoration: none;
+    background-image: linear-gradient(to right, rgba(255, 209, 47, 1),rgba(253, 247, 227, 1),rgba(255, 209, 47, 1));
+    border-radius: 15px;
+    transition: 0.5s;
+    padding: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+    color: black;
+}
+
+.right a:hover{
+    background-color: azure;
+    color: white;
+}
+
+.navbar button{
+    background-color: transparent;
+    border-color: transparent;
+    cursor: pointer;
+    display: none;
+    z-index: 0;
+}
+
+.navbar svg{
+    font: 40px;
+}
+
+.navbar .hidden{
+    z-index: 4;
+    position: absolute;
+    display: none;
+    background-image: linear-gradient(#A7213C, #B82038);
+    padding: 25%;
+    width: 200px;
+    height: 100vh;
+    left:-29vw;
+    top: 175%;
+    flex-direction: column;
+}
+
+.black{
+    background-color: black;
+}
+
+.darken{
+    z-index: 1;
+    display: none;
+    background-color: black;
+    opacity: 70%;
+    top: 100%;
+    width: 100vw;
+    height: 100vh;
+}
+
+.navbar .hidden a{
+    text-decoration: none;
+    background-image: linear-gradient(to right, rgba(255, 209, 47, 1),rgba(253, 247, 227, 1),rgba(255, 209, 47, 1));
+    border-radius: 15px;
+    transition: 0.5s;
+    margin-top: 10%;
+    margin-left: 4%;
+    padding: 10%;
+    width: 150px;
+    
+}
+
+@keyframes slideIn{
+    0%{
+        transform: translateX(100vw);
+    }
+    100%{
+        transform: translateX(0vw);
+    }
+}
+
+@keyframes slideout{
+    0%{
+        transform: translateX(0vw);
+        display: flex;
+        flex-direction: column;
+    }
+    100%{
+        transform: translateX(100vw);
+        display: none;
+    }
+}
+
+@keyframes popD{
+    0%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 70%;
+    }
+}
+
+@keyframes fadeD{
+    0%{
+        opacity: 70%;
+        display: flex;
+        flex-direction: column;
+    }
+    100%{
+        opacity: 0%;
+        display: none;
+    }
+}
+
+@media (max-width:1200px){
+    .bg{
+        width: 450vw;
+    }
+}
+
+@media (max-width:600px){
+    .navbar button{
+        padding-left: 45%;
+        display: initial;
+        transition: 2s;
+    }
+
+    .bg{
+        width: 450vw;
+    }
+
+    .navbar .right{
+        display: none;
+    }
+
+    .navbar #open{
+        display: initial;
+        display: flex;
+        flex-direction: column;
+        animation: popD 0.5s;
+    }
+
+    .navbar #close{
+        flex-direction: column;
+        transition: 2s;
+        animation: fadeD 0.5s;
+    }
+
+    .Front #open{
+        display: initial;
+        display: flex;
+        flex-direction: column;
+        animation: slideIn 0.5s;
+
+    }
+
+    .Front #close{
+        flex-direction: column;
+        transition: 2s;
+        animation: slideOut 0.5s;
+    }
+    
+}

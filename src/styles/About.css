@@ -1,0 +1,68 @@
+@keyframes slideInFromTop{
+    0%{
+        transform: translateY(-7vw);
+        opacity: 0%;
+    }
+    50%{
+        transform: translateY(0);
+        opacity: 100%;
+    }
+}
+
+
+.about{
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    position: relative;
+}
+
+.aboutBox{
+    margin: auto;
+    color: white;
+    padding: 1%;
+    background-color: gray;
+    margin-left: 5%;
+    text-align: start;
+    width: 50%;
+    animation: slideInFromTop 2s ease-out;
+}
+
+.galleryVertical{
+    margin-right:2%;
+    width: 40%;
+    position: absolute;
+    right: 0;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.galleryHorizontal{
+    display: none;
+}
+
+@media (max-width:600px) {
+    .about{
+        flex-direction: column;
+    }
+
+    
+
+    .gallery{
+        width: 90%;
+    }
+
+    .aboutBox{
+        width: 90%;
+    }
+
+    .galleryHorizontal{
+        padding-top: 15%;
+        display: initial;
+    }
+
+    .galleryVertical{
+        display: none;
+    }
+}
