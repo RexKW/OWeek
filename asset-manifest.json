@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/OWeek/static/css/main.57c60fb9.css",
+    "main.js": "/OWeek/static/js/main.205f1b13.js",
+    "static/js/453.46b15df0.chunk.js": "/OWeek/static/js/453.46b15df0.chunk.js",
+    "static/media/landscape-windows-11-lake-forest-day-time-1920x1080-8621.jpeg": "/OWeek/static/media/landscape-windows-11-lake-forest-day-time-1920x1080-8621.df434aa8334be512c7fe.jpeg",
+    "static/media/landscape-293chzhp3r67ag4a.jpg": "/OWeek/static/media/landscape-293chzhp3r67ag4a.764a285308a21b853c27.jpg",
+    "static/media/jpg": "/OWeek/static/media/1c218edb013d9231aa465e87a16eb8ec.342b62c857d7be3188b8.jpg",
+    "index.html": "/OWeek/index.html",
+    "main.57c60fb9.css.map": "/OWeek/static/css/main.57c60fb9.css.map",
+    "main.205f1b13.js.map": "/OWeek/static/js/main.205f1b13.js.map",
+    "453.46b15df0.chunk.js.map": "/OWeek/static/js/453.46b15df0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.57c60fb9.css",
+    "static/js/main.205f1b13.js"
+  ]
+}
