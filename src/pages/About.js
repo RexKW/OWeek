@@ -7,7 +7,7 @@ function About() {
   return (
     <div className='about'>
       <div className='galleryHorizontal'>
-        <CarouselHorizontal />
+        <CarouselHorizontal/>
       </div> 
       
       <div className='aboutBox'>

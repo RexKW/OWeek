@@ -4,12 +4,19 @@
     flex-direction: row;
     margin: 0;
     height: 10vh;
+    position: relative;
+    box-shadow: #22070c1a 60px 60px 60px 60px;
     
 }
 .left{
     display: flex;
     flex-basis: 50%;
     margin-left: 2%;
+    z-index: 6;
+}
+
+.Front a{
+    z-index: 7;
 }
 
 .right{
@@ -25,19 +32,20 @@
 
 .stripe{
     background-image: linear-gradient(#A7213C, #B82038);
-    height: 10vh;
-    width: 200px;
+    height: 11vh;
+    width: 150px;
 }
 
 .bg{
     height: 10vh;
     overflow-x: hidden;
-    
+    z-index: 5;
+    background-color: #FFFFE5;
 }
 
 .burger{
     color: rgba(255, 209, 47, 1);
-    width: 40px;
+    bottom: 10%;
     height: auto;
 }
 .right a{
@@ -49,11 +57,13 @@
     padding-left: 10%;
     padding-right: 10%;
     color: black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-weight:500;
 }
 
 .right a:hover{
     background-color: azure;
-    color: white;
+    color: rgb(245, 113, 18);
 }
 
 .navbar button{
@@ -61,25 +71,50 @@
     border-color: transparent;
     cursor: pointer;
     display: none;
-    z-index: 0;
+    z-index: 7;
 }
 
 .navbar svg{
     font: 40px;
 }
 
+.drape{
+    width: 235px;
+    height: 200px;
+    margin: -1%;
+    border-radius: 50%;
+    margin-top: -1.8%;
+    z-index: 2;
+    background-image: linear-gradient(#581111, #b82543);
+    box-shadow: black;
+    position: relative;
+}
+
+.navMascot{
+    width: 170px;
+    height: 210px;
+    background-color: black;
+    position: absolute;
+    bottom: 15%;
+}
+
+
 .navbar .hidden{
-    z-index: 4;
+    z-index: 1;
     position: absolute;
     display: none;
-    background-image: linear-gradient(#A7213C, #B82038);
+    background-image: linear-gradient(#94102a, #B82038);
     padding: 25%;
     width: 200px;
-    height: 100vh;
-    left:-29vw;
-    top: 175%;
+    padding-top: 100%;
+    top: 200%;
     flex-direction: column;
+    left: -30vw;
+    align-items: center;
+    float: right;
+    height: 100vh;
 }
+
 
 .black{
     background-color: black;
@@ -88,11 +123,12 @@
 .darken{
     z-index: 1;
     display: none;
+    position: fixed;
     background-color: black;
     opacity: 70%;
     top: 100%;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 608vh;
 }
 
 .navbar .hidden a{
@@ -100,11 +136,22 @@
     background-image: linear-gradient(to right, rgba(255, 209, 47, 1),rgba(253, 247, 227, 1),rgba(255, 209, 47, 1));
     border-radius: 15px;
     transition: 0.5s;
-    margin-top: 10%;
+    margin-top: 5%;
     margin-left: 4%;
     padding: 10%;
     width: 150px;
     
+}
+
+.lights{
+    width: 30px;
+    height: 30px;
+    background-color: #FFF372;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 4%;
+    left: -20%;
+    box-shadow: 0 0 24px 0 rgba(245, 222, 107, 0.521), 0 0 40px 0 rgba(245, 222, 107, 0.19);
 }
 
 @keyframes slideIn{
@@ -151,19 +198,22 @@
 
 @media (max-width:1200px){
     .bg{
-        width: 450vw;
+        width: 900vw;
     }
 }
 
-@media (max-width:600px){
+@media (max-width:768px){
     .navbar button{
-        padding-left: 45%;
         display: initial;
         transition: 2s;
     }
 
+    .navbar .hidden{
+        left:-27vw;
+    }
+
     .bg{
-        width: 450vw;
+        width: 1350vw;
     }
 
     .navbar .right{
@@ -196,5 +246,18 @@
         transition: 2s;
         animation: slideOut 0.5s;
     }
+
     
+    
+}
+
+@media(max-width:420px){
+    .bg{
+        width: 1800vw;
+    }
+
+    .navbar .hidden{
+        left:-32.5vw;
+    }
+
 }

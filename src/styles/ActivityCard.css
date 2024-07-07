@@ -1,0 +1,94 @@
+.activity1 {
+    /* Add basic styles */
+    border: 1px solid #000;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    margin: 10px 0;
+    height: 420px;
+    text-align: start;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 153, 255);
+    padding-left: 7%;
+  }
+
+  .activity2 {
+    /* Add basic styles */
+    border: 1px solid #000;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    margin: 10px 0;
+    height: 420px;
+    text-align: start;
+    justify-content: center;
+    align-items: center;
+    background-color: purple;
+    padding-left: 7%;
+  }
+
+  .carousel-item{
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .popUpButton{
+    margin-top:1%;
+    margin-left: 1%;
+    width: 25px;
+    height: 25px;
+    background-color: black;
+  }
+
+
+  .desc{
+    display: flex;
+    flex-basis: 80%;
+    flex-direction: column;
+  }
+
+  .mascotAct{
+    flex-basis: 20%;
+    width: 200px;
+    height: 350px;
+    background-color: black;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-right: 8%;
+  }
+
+  .activity3 {
+    /* Add basic styles */
+    border: 1px solid #000;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    margin: 10px 0;
+    height: 420px;
+    text-align: start;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(250, 200, 0);
+    padding-left: 7%;
+  }
+
+  .lineInfo{
+    align-items: center;
+  }
+
+
+  @media(max-width:768px){
+    .desc{
+      flex-basis: 60%;
+    }
+
+    .mascotAct{
+      margin-right: 5%;
+      flex-basis: 40%;
+      height: 150px;
+    }
+
+    .activity1,.activity2,.activity3{
+      height: 200px;
+    }
+  }

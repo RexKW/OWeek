@@ -1,11 +1,11 @@
 import './App.css';
 import Navbar from './components/Navbar';
-import Footer from './components/Footer';
 import { BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import Home from './pages/Home';
 import About from './pages/About';
 import Rules from './pages/Rules';
 import Schedule from './pages/Schedule';
+import 'flowbite/dist/flowbite.css';
 
 function App() {
   return (

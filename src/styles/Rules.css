@@ -1,12 +1,18 @@
-.rules{
 
+.rules{
+    background-image: url(../assets/rev\ ext\ bg.png);
+    background-size: 100vw;
+    background-repeat: no-repeat;
+    background-position: 50% -15vh;
 }
+
 
 .ruleBox{
     justify-content: center;
     width: 50%;
     margin: auto;
 }
+
 
 .ruleContent{
     background-color: gray;

@@ -16,12 +16,15 @@
     flex-direction: row;
     height: 100vh;
     position: relative;
+    z-index: 0;
+    background-color: #631424;
 }
 
 .aboutBox{
     margin: auto;
     color: white;
     padding: 1%;
+    position: relative;
     background-color: gray;
     margin-left: 5%;
     text-align: start;
@@ -31,11 +34,10 @@
 
 .galleryVertical{
     margin-right:2%;
-    width: 40%;
+    width: 50%;
     position: absolute;
-    right: 0;
+    right: -15%;
     height: 100vh;
-    overflow-y: hidden;
 }
 
 .galleryHorizontal{
@@ -59,6 +61,7 @@
 
     .galleryHorizontal{
         padding-top: 15%;
+        margin-top: 10%;
         display: initial;
     }
 

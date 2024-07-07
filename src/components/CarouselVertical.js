@@ -18,15 +18,15 @@ function CarouselVertical() {
     verticalSwiping: true,
     swipeToSlide: true,
     autoplay: true,
-    speed: 2500,
+    speed: 600,
     arrows: false,
-    autoplaySpeed: 2500,
+    autoplaySpeed: 2000,
     pauseOnHover: false,
     pauseOnFocus: false,
     centerMode: true,
     cssEase: "linear",
     centerPadding: "0px",  // Ensure there is no padding so the slide is perfectly centered
-    initialSlide: 1,  // Make sure initial slide is correctly set
+    initialSlide: 2,  // Make sure initial slide is correctly set
     beforeChange: (current, next) => setImageIndex(next),
   };
 
