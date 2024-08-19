@@ -1,130 +1,174 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import '../styles/Schedule.css';
 import ActivityCard from '../components/ActivityCard';
-import { ActivityList1 } from '../helpers/ActivityList1';
-import { ActivityList2 } from '../helpers/ActivityList2';
-import { ActivityList3 } from '../helpers/ActivityList3';
-import { ActivityList4 } from '../helpers/ActivityList4';
 import Carousel from 'react-bootstrap/Carousel';
+import { ActivityListD } from '../helpers/ActivityListD';
+import PopUp from '../components/PopUp';
+import leftC from '../assets/leftCurtainwLight.svg';
+import leftCM from '../assets/leftCurtainsM.svg';
+import rightC from '../assets/rightCurtainwLight.svg';
+import rightCM from '../assets/rightCurtainsM.svg';
+import Chicks from '../assets/3Chicks-min.png';
+import scheduleSign from '../assets/schedule board copy.png';
+import Rundown from '../helpers/Rundown';
+import DressCode from '../helpers/Dresscode';
+import Penugasan from '../helpers/Penugasan';
+import Ketentuan from '../helpers/Ketentuan';
 
 function Schedule() {
-  const [time, setTime] = useState('00:00:00');
   const [day, setSelectedDay] = useState('');
-  const [activityList, setActivityList] = useState(ActivityList1);
-  const [progress, setProgress] = useState(0);
+  const [activityList, setActivityList] = useState(ActivityListD);
   const [currentActivityIndex, setCurrentActivityIndex] = useState(0);
-  const interval = useRef();
-  const targetTime = '18:00:00'; // adjust this to your desired target time
+  const [buttonPopUp, setButtonPopUp] = useState(false);
+  const [dressCodePopUp, setDressCodePopUp] = useState(false);
+  const [penugasanPopUp, setPenugasanPopUp] = useState(false);
+  const [ketentuanPopUp, setKetentuanPopUp] = useState(false);
+  const [selectedActivity, setSelectedActivity] = useState(null);
+  const intervalRef = useRef(null);
+  const [dressCode, setDressCode] = useState('0');
+  const [runDown, setRunDown] = useState('0');
 
   const calculateCurrentActivityIndex = (list) => {
     const now = new Date();
-    const currentTimeInSeconds = now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
-
-    // Find the first activity that hasn't ended yet
     const index = list.findIndex((activity) => {
       const { timeStart, timeEnd } = activity;
-
       if (!(timeStart instanceof Date) || !(timeEnd instanceof Date)) {
         console.error('timeStart and timeEnd should be Date objects');
         return false;
       }
-
-      const activityStartInSeconds = timeStart.getHours() * 3600 + timeStart.getMinutes() * 60;
-      const activityEndInSeconds = timeEnd.getHours() * 3600 + timeEnd.getMinutes() * 60;
-
-      return currentTimeInSeconds < activityEndInSeconds;
-    });
-    console.log("Current Activity Index:", index);
-
-    return index === -1 ? 0 : index; // default to the first activity if none are found
-  };
-
-  const getActivityListAndDay = () => {
-    const today = new Date();
-    const date = today.getDate();
-    const month = today.getMonth() + 1;
-
-    if (month === 6) {
-      switch (date) {
-        case 15:
-          return { activityList: ActivityList1, day: 'Day 1' };
-        case 16:
-          return { activityList: ActivityList2, day: 'Day 2' };
-        case 17:
-          return { activityList: ActivityList3, day: 'Day 3' };
-        case 18:
-          return { activityList: ActivityList4, day: 'Day 4' };
-        default:
-          return { activityList: ActivityList1, day: 'Day 1' };
-      }
-    }
-
-    return { activityList: ActivityList1, day: 'Day 1' }; // default case
-  };
-
-  const startTimer = () => {
-    interval.current = setInterval(() => {
-      const now = new Date();
-      const hours = `0${now.getHours()}`.slice(-2);
-      const minutes = `0${now.getMinutes()}`.slice(-2);
-      const seconds = `0${now.getSeconds()}`.slice(-2);
-
-      const currentTime = `${hours}:${minutes}:${seconds}`;
-      const currentTimeInSeconds = currentTime.split(':').reduce((acc, val) => acc * 60 + parseInt(val), 0);
-      const targetTimeInSeconds = targetTime.split(':').reduce((acc, val) => acc * 60 + parseInt(val), 0);
-
-      const progressPercentage = (currentTimeInSeconds / targetTimeInSeconds) * 100;
-      if (progressPercentage < 100) {
-        setProgress(progressPercentage);
+      if (timeStart <= timeEnd) {
+        return timeStart <= now && now <= timeEnd;
       } else {
-        setProgress(100);
+        return now >= timeStart || now <= timeEnd;
       }
+    });
+    return index === -1 ? 0 : index;
+  };
 
-      setTime(`${hours} : ${minutes} : ${seconds}`);
-    }, 1000);
+  const getActivityListAndDay = (index) => {
+    if (index === 0) {
+      return { activityList: ActivityListD, day: '16 Aug', dressCode: '16', runDown: '16Aug' };
+    } else if (index === 1) {
+      return { activityList: ActivityListD, day: '17 Aug', dressCode: '17', runDown: '17Aug' };
+    }else if (index === 2){
+      return { activityList: ActivityListD, day: '17 Aug', dressCode: '17', runDown:'17Aug'};
+    } else if (index === 3) {
+      return { activityList: ActivityListD, day: 'Day 1', dressCode: '1', runDown: '2Sep' };
+    } else if (index === 4) {
+      return { activityList: ActivityListD, day: 'Day 2', dressCode: '2', runDown: '3Sep' };
+    } else if (index === 5) {
+      return { activityList: ActivityListD, day: 'Day 3', dressCode: '3', runDown: '4Sep' };
+    } else if (index === 6) {
+      return { activityList: ActivityListD, day: 'Day 4', dressCode: '4', runDown: '5Sep' };
+    } else if (index === 7) {
+      return { activityList: ActivityListD, day: 'Day 5', dressCode: '5', runDown: '6Sep' };
+    } else if (index === 8) {
+      return { activityList: ActivityListD, day: 'Day 6', dressCode: '6', runDown: '7Sep' };
+    }
   };
 
   useEffect(() => {
-    const { activityList, day } = getActivityListAndDay();
-    setActivityList(activityList);
-    setSelectedDay(day);
-    const currentIndex = calculateCurrentActivityIndex(activityList);
-    setCurrentActivityIndex(currentIndex);
-    startTimer();
-    return () => {
-      clearInterval(interval.current);
+    const updateActivityIndex = () => {
+      const newIndex = calculateCurrentActivityIndex(activityList);
+      setCurrentActivityIndex(newIndex);
     };
+
+    updateActivityIndex(); 
+
+    const now = new Date();
+    const msUntilMidnight = (24 - now.getHours()) * 3600000 - now.getMinutes() * 60000 - now.getSeconds() * 1000;
+    setTimeout(() => {
+      updateActivityIndex();
+      intervalRef.current = setInterval(updateActivityIndex, 86400000); // Update every 24 hours
+    }, msUntilMidnight);
+
+    return () => {
+      clearInterval(intervalRef.current);
+    };
+  }, [activityList]);
+
+  useEffect(() => {
+    const { activityList, day, dressCode, runDown } = getActivityListAndDay(currentActivityIndex);
+    setActivityList(activityList);
+    setDressCode(dressCode);
+    setRunDown(runDown);
+    setSelectedDay(day);
+  }, [currentActivityIndex]);
+
+  const openPopUp = useCallback((type, activity) => {
+    setSelectedActivity(activity);
+    if (type === 'dressCode') setDressCodePopUp(true);
+    if (type === 'penugasan') setPenugasanPopUp(true);
+    if (type === 'ketentuan') setKetentuanPopUp(true);
   }, []);
+
+  const closePopUps = () => {
+    setDressCodePopUp(false);
+    setPenugasanPopUp(false);
+    setKetentuanPopUp(false);
+    setSelectedActivity(null);
+  };
 
   return (
     <div className='schedule'>
-      <div className='topContainer relative'>
-        <div className='dayCard absolute left-0 '>
-          <p className='text-4xl mx-auto mt-20 md:mt-40'>{day}</p>
-          <p className='text-4xl mx-auto mt-3 md:mt-5'>{time}</p>
-          <div className='progressBar relative'>
-            <div className='bar absolute' style={{ width: `${progress}%` }}></div>
-          </div>
-        </div>
-
-        <div className='mascot absolute right-10 '>
-          hi
-        </div>
+      <img src={leftCM} className='leftCurtainSM' alt="Left Curtain Small" loading="lazy"/>
+      <img src={rightCM} className='rightCurtainSM' alt="Right Curtain Small" loading="lazy"/>
+      <img src={leftC} className='leftCurtainS' alt="Left Curtain" loading="lazy"/>
+      <img src={rightC} className='rightCurtainS' alt="Right Curtain" loading="lazy"/>
+      <div className='flex justify-center'>
+        <img src={scheduleSign} className='scheduleSign' alt="Schedule Sign" loading="lazy"/>
       </div>
+      <button className="viewFull text-xs md:text-sm" onClick={() => setButtonPopUp(true)}>View Full Schedule</button>
+      <PopUp className="absolute" trigger={buttonPopUp} setTrigger={setButtonPopUp}>
+        <Rundown runDown={runDown} currentActivityIndex={currentActivityIndex} />
+      </PopUp>
+      
+      {dressCodePopUp && (
+        <PopUp className="absolute" trigger={dressCodePopUp} setTrigger={closePopUps} loading="lazy">
+          <p>{selectedActivity?.dressCode}</p>
+        </PopUp>
+      )}
+      {penugasanPopUp && (
+        <PopUp className="absolute" trigger={penugasanPopUp} setTrigger={closePopUps} loading="lazy">
+          <p>{selectedActivity?.penugasan}</p>
+        </PopUp>
+      )}
+      {ketentuanPopUp && (
+        <PopUp className="absolute" trigger={ketentuanPopUp} setTrigger={closePopUps} loading="lazy">
+          <p>{selectedActivity?.ketentuan}</p>
+        </PopUp>
+      )}
 
-      <div className='bottomContainer relative mt-3 md:mt-5'>
-        <div>
-          <p className='text-5xl text-start'>Activity</p>
-        </div>
+      <img src={Chicks} className='iChick' alt="Chicks" loading="lazy"/>
+      <div className='bottomContainer relative'>
+        <div className='absolute left-[5%] flex justify-start top-[1%] md:top-[5%]'></div>
         <div className='activities'>
-          <Carousel indicators={false} defaultActiveIndex={currentActivityIndex} interval={null} touch={true}>
+          <Carousel
+            indicators={false}
+            activeIndex={currentActivityIndex}
+            interval={null}
+            touch={!buttonPopUp}
+            slide={true}
+            wrap={false}
+            onSelect={(index) => !buttonPopUp && setCurrentActivityIndex(index)}
+          >
             {activityList.map((activity, key) => (
-              <Carousel.Item key={key}>
+              <Carousel.Item key={key} loading="lazy">
                 <ActivityCard
+                  day={activity.day}
+                  dressCode={<DressCode dressCode={dressCode} />}
                   name={activity.name}
                   type={activity.type}
+                  date={activity.date}
                   timeStart={activity.timeStart}
                   timeEnd={activity.timeEnd}
+                  timeStart2={activity.timeStart2}
+                  timeEnd2={activity.timeEnd2}
+                  penugasan={<Penugasan dressCode={dressCode} currentActivityIndex={currentActivityIndex} />}
+                  ketentuan={<Ketentuan dressCode={dressCode} currentActivityIndex={currentActivityIndex}/>}
+                  location={activity.location}
+                  contact={activity.contact}
+                  onOpenPopUp={openPopUp}
                 />
               </Carousel.Item>
             ))}

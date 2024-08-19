@@ -1,19 +1,95 @@
 .schedule{
     overflow-y: hidden;
     padding-bottom: 10%;
+    min-height: 100vh;
+    background-image: url(../assets/BGCUTHOMEV2.svg);
+    background-size: 100vw auto;
+    background-position: 0% 5%;
     
 }
 
-.topContainer{
-    background-color: gray;
-    height: 400px;
-    margin-top: 5%;
-    margin-left: 10%;
-    margin-right: 10%;
-    display: flex;
+.iChick{
+    position: absolute;
+    width: auto;
+    height: 40vh;
+    bottom: 7vh;
+    left: 24%;
+}
+
+.viewFull{
+    color:rgb(10, 10, 10);;
+    background-image: linear-gradient(to right, #fab035,#fede75,#fab035);
+    border-radius: 40px;
+    padding: 1%;
+    border: 3px solid #e0523b;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     position: relative;
+    transition: 300ms;
+    z-index: 2;
+}
+
+.scheduleSign{
+    width: auto;
+    height: 30vh;
+    margin-top: 10vh;
+    position: relative;
+}
+
+.carousel-control-prev-icon{
+    background-image: url('../assets/LArrowBG_2.svg');
+    background-size: 90% 90%;
+    width: 4rem;
+    height:4rem;
+}
+
+.carousel-control-next-icon{
+    background-image: url('../assets/RArrowBG_2.svg');
+    background-size: 90% 90%;
+    width: 4rem;
+    height:4rem;
+}
+
+.carousel-control-prev, .carousel-control-next{
+    opacity: 1 !important;
+}
+
+.viewFull:hover, .aLink:hover{
+    color: rgb(251, 239, 212);
+    box-shadow: 0 10px 25px rgba(255, 209, 47, .4);
+    transition: 300ms;
+}
+
+.aLink{
+    color:#fede75;
+}
+
+
+
+.scheduleHeader{
+    font-family: 'ClementePDam', sans-serif;
+    src: url('../fonts/ClementePDam-Bold.ttf') format('truetype');
 
 }
+
+.leftCurtainS{
+    position: absolute;
+    height: 140vh;
+    top: -5%;
+    left: -6%;
+    animation: slideFromLeftC 2s ease-out;
+}
+
+.rightCurtainS{
+    position: absolute;
+    height: 140vh;
+    top: -5%;
+    right: -6%;
+    animation: slideFromRightC 2s ease-out;
+}
+
+
+
+
 
 .carousel{
     opacity: 1;
@@ -24,6 +100,15 @@
 }
 
 
+.bold{
+    font-family: 'ClementePDam', sans-serif;
+    src: url('../fonts/ClementePDam-Bold.ttf') format('truetype');
+}
+
+.schedule li{
+    font-family: 'ClementePDai';
+  src: url('../fonts/ClementePDai-Regular.ttf') format('truetype');
+}
 
 
 .activities{
@@ -34,12 +119,11 @@
     position: absolute;
     bottom: 0;
     margin: 0;
-    padding: 0;
     align-items: center;
     justify-content: center;
     overflow-x: hidden;
     overflow-y: hidden;
-    z-index: 0;
+    z-index: 2;
     
 }
 
@@ -54,7 +138,6 @@
     justify-content: center;
     width: 5%;
     padding: 0;
-    background-color: aqua;
     color: #fff;
     text-align: center;
     background: 0 0;
@@ -63,74 +146,243 @@
     transition: opacity .15s ease;
 }
 
-
-.mascot{
-    background-color: black;
-    height: 400px;
-    width: 250px;
+.leftCurtainSM,.rightCurtainSM{
+    display: none;
 }
+
+.runDownText{
+    padding-right: 1%;
+}
+
+
 
 .bottomContainer{
     height: 500px;
     margin-left: 10%;
     margin-right: 10%;
-    background-color: gray;
     justify-content: center;
 }
 
-.dayCard{
-    background-color: rgb(255, 0, 0);
-    height: 400px;
-    margin-left: 0px;
-    display: flex;
-    width: 700px;
-    flex-direction: column;
+
+@media(max-width:1400px){
+    .leftCurtainS{
+        left: -8%;
+    }
+    .rightCurtainS{
+        right: -8%;
+    }
+
+    .iChick{
+        position: absolute;
+        width: 50vw;
+        height: auto;
+        bottom: 15vh;
+        left: 25vw;
+    }
+}
+
+@media(max-width:1024px) and (orientation:portrait){
+    .leftCurtainS,.rightCurtainS{
+        display: none;
+    }
+
+    .leftCurtainSM,.rightCurtainSM{
+        display: initial;
+        position: absolute;
+        top: 1%;
+        height: 100vh;
+        z-index: 0;
+    }
+    .leftCurtainSM{
+        left:-8%;
+    }
+
+    .rightCurtainSM{
+        right: -8%;
+    }
+
+    .scheduleSign{
+        height: 20vh;
+        top: 0vh;
+    }
+}
+
+@media(max-width:920px) and (orientation:landscape){
+    .schedule{
+        height: 130vh;
+    }
+
+    .activities{
+        height: 250px;
+    }
+
+    .scheduleSign{
+        top: 8vh;
+    }
+
+    .viewFull{
+        margin-top: 3%;
+    }
+
+    .bottomContainer{
+        height: 220px;
+        margin-top: 5%;
+    }
+
+    .iChick{
+        display: none;
+    }
+}
+
+
+@media(max-width:850px) and (orientation:landscape){
+    .schedule{
+        height: 130vh;
+    }
+
+    .scheduleHeader{
+        margin-top: 25vh;
+    }
+
+    .bottomContainer{
+        height: 250px;
+    }
+
     
 }
-
-
-.progressBar{
-    background-color: rgb(5, 255, 151);
-    width: 85%;
-    height: 45px;
-    margin: auto;
-    border-radius: 10px;
-}
-
-.bar{
-    background-color: rgb(111, 0, 255);
-    width: 50%;
-    height: 100%;
-    border-radius: 10px;
-    transition: 300ms;
-}
-
 
 @media (max-width:768px) {
     .schedule{
         padding-bottom: 45%;
     }
 
-    .mascot{
-        display: none;
+    .iChick{
+        position: absolute;
+        width: 90vw;
+        height: auto;
+        bottom: 25vh;
+        left: 5vw;
     }
 
+
+
     .dayCard{
-        width: 80vw;
-        height: 300px;
+        margin-top: 15%;
+        width: 85vw;
+        height: 220px;
     }
 
     .topContainer{
         margin-top: 15%;
         height: 300px;
+        margin-left: 7.5%;
+     margin-right:7.5%;
     }
 
     .bottomContainer{
-        height: 300px;
+        height: 250px;
+        margin-left: 3.5%;
+    margin-right: 3.5%;
+
     }
 
     .activities{
-        height: 200px;
+        height: 300px;
         bottom: 10%;
+    }
+
+
+
+}
+
+@media(max-width:768px) and (orientation:landscape){
+    .activities{
+        height: 250px;
+    }
+}
+
+
+@media(max-width:768px) and (orientation:portrait){
+    .activities{
+        height: 300px;
+    }
+
+    .bottomContainer{
+        height: 350px;
+        margin-left: 3.5%;
+    margin-right: 3.5%;
+
+    }
+
+    .scheduleSign{
+        height: 20vh;
+    }
+}
+
+@media(max-width:640px){
+    .bottomContainer{
+        height: 250px;
+        margin-top: 10%;
+    }
+
+    .activities{
+        height: 250px;
+    }
+
+    .leftCurtainS,.rightCurtainS{
+        display: none;
+    }
+
+    .leftCurtainSM,.rightCurtainSM{
+        display: initial;
+        position: absolute;
+        top: -3%;
+        height: 100vh;
+
+    }
+
+    .leftCurtainSM{
+        left: -27%;
+        animation: slideFromLeftC 2s ease-out;
+    }
+
+    .rightCurtainSM{
+        right: -27%;
+        animation: slideFromRightC 2s ease-out;
+    }
+
+    .schedule{
+        overflow-y: hidden;
+        padding-bottom: 10%;
+        height:90vh;
+        min-height: 0vh;
+        background-image: url(../assets/phoneBG.svg);
+        background-size: 100vw auto;
+        background-position: 50% 2%;
+    }
+    
+
+    .iChick{
+        position: absolute;
+        min-width: 125vw;
+        height: auto;
+        bottom: 12vh;
+        left: -12.5vw;
+    }
+    
+
+}
+
+@media(max-width:350px){
+    .schedule{
+        background-size: 120vw;
+        background-position: 60% -20%;
+    }
+    .leftCurtainSM{
+        left: -40%;
+    }
+
+    .rightCurtainSM{
+        right: -40%;
     }
 }

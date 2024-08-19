@@ -1,94 +1,390 @@
+.activity1, .activity2, .activity3 {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  height: 420px;
+  text-align: start;
+  justify-content: center;
+  align-items: center;
+  background-size: 100% 100%;
+  background-position: 0%;
+  background-repeat: no-repeat;
+  font-family: 'ClementePDam', sans-serif;
+  transition: 300ms;
+}
+
 .activity1 {
-    /* Add basic styles */
-    border: 1px solid #000;
-    display: flex;
-    flex-direction: row;
-    padding: 10px;
-    margin: 10px 0;
-    height: 420px;
-    text-align: start;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(0, 153, 255);
-    padding-left: 7%;
-  }
+  background-image: url('../assets/activity2Ticket-min.png');
+}
 
-  .activity2 {
-    /* Add basic styles */
-    border: 1px solid #000;
-    display: flex;
-    flex-direction: row;
-    padding: 10px;
-    margin: 10px 0;
-    height: 420px;
-    text-align: start;
-    justify-content: center;
-    align-items: center;
-    background-color: purple;
-    padding-left: 7%;
-  }
+.activity2 {
+  background-image: url('../assets/activityTicket3-min.png');
+}
 
-  .carousel-item{
-    transition: transform 0.5s ease-in-out;
-  }
+.activity3 {
+  background-image: url('../assets/activity1Ticket-min.png');
+}
 
-  .popUpButton{
-    margin-top:1%;
-    margin-left: 1%;
-    width: 25px;
-    height: 25px;
-    background-color: black;
-  }
+.carousel-item {
+  transition: transform 0.5s ease-in-out;
+}
+
+.popUpButton {
+  width: 25px;
+  height: 25px;
+  background-color: none;
+  border-radius: 50%;
+  border: #181818 solid 2px;
+}
+
+.desc {
+  display: flex;
+  flex-basis: 65%;
+  flex-direction: column;
+  margin-left: -20%;
+
+}
+
+.actName{
+  font-size: 3rem; /* 48px */
+line-height: 1;
+}
+
+.dressCode {
+  position: absolute;
+  right: 0;
+}
+
+.lineInfo {
+  align-items: center;
+}
+
+.wrapperCard {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.dayText {
+  display: inline-block;
+  position: absolute;
+  line-height: 1;
+  color: white;
+  right: 8.5%;
+  bottom: 20%;
+  font-size: 2.25rem; /* 36px */
+line-height: 2.5rem; /* 40px */
+}
+
+.dayText span {
+  display: block;
+  margin-bottom: -0.1em;
+  margin-right: -0.1em;
+  
+}
+
+.iconDC{
+  transform: scale(2);
+  color: rgb(19, 19, 19);
+  margin-top: 75%;
+  margin-left: -10%;
+  background-image: linear-gradient(to right, #fab035,#fede75,#fab035);
+  border: 2px solid #e0523b;
+  border-radius: 50%;
+  padding-bottom: 5%;
+  transition: 300ms;
+}
+
+.iconDC:hover{
+  color: rgb(251, 239, 212);
+  transition: 300ms;
+}
+
+.contact{
+  font-size: 1.25rem; /* 20px */
+line-height: 1.75rem; /* 28px */
+margin-top:2%;
+margin-bottom: -4%;
+}
 
 
-  .desc{
-    display: flex;
-    flex-basis: 80%;
-    flex-direction: column;
-  }
 
-  .mascotAct{
-    flex-basis: 20%;
-    width: 200px;
+.infoSchedule{
+  right: 6.8vw;
+  bottom: 5%;
+  height: 6.5vh;
+  transition: 300ms;
+}
+
+.status{
+  font-size: 1.25rem; /* 20px */
+line-height: 1.75rem; /* 28px */
+}
+
+.timeK{
+  font-size: 1.25rem; /* 20px */
+line-height: 1.75rem; /* 28px */
+}
+
+.date{
+  font-size: 1.5rem; /* 24px */
+line-height: 2rem; /* 32px */
+}
+
+.loc{
+  font-size: 1.25rem; /* 20px */
+line-height: 1.75rem; /* 28px */
+}
+
+.extras{
+  font-size: 1.875rem; /* 30px */
+  line-height: 2.25rem; /* 36px */
+  background-image: linear-gradient(to right, #B07F2B,#F5DC7C,#B07F2B);
+  padding: 2%;
+  border-radius: 15px;
+  transition: 0.5s;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.extras:hover{
+  background-image: linear-gradient(to right, #B07F2B,#F5DC7C,#B07F2B);
+  color: rgb(251, 239, 212);
+  box-shadow: 0 10px 25px rgba(255, 209, 47, .4);
+  transition: 0.5s;
+}
+
+
+@media(max-width:1200px){
+  .activity1, .activity2, .activity3 {
+
     height: 350px;
-    background-color: black;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    margin-right: 8%;
   }
 
-  .activity3 {
-    /* Add basic styles */
-    border: 1px solid #000;
+  .actName{
+    font-size: 2.25rem; /* 36px */
+line-height: 2.5rem; /* 40px */
+  }
+
+  .dayText{
+    bottom: 5%;
+    right: 8%;
+  }
+
+
+  
+}
+
+@media(max-width:960px){
+  .dayText{
+    bottom: 8%;
+    right: 7.2%;
+  }
+}
+
+@media(max-width:920px) and (orientation:landscape){
+  .activity1, .activity2, .activity3 {
+    height: 220px;
+  }
+
+  .dayText{
+    font-size: 1.25rem; /* 24px */
+    line-height: 1.45rem; /* 32px */
+    right: 8.5%;
+  }
+
+  .infoSchedule{
+    bottom: 8%;
+    height: 8vh;
+  }
+
+  .iconDC{
+    transform: scale(2);
+    border-radius: 50%;
+    
+  }
+
+  .actName{
+    font-size: 1.1rem; /* 16px */
+    line-height: 1.5rem; /* 24px */
+  }
+
+  .date{
+    font-size: 0.975rem; /* 14px */
+    line-height: 1.35rem; /* 20px */
+  }
+
+  .loc{
+    font-size: 0.75rem; /* 14px */
+    line-height: 1.3rem; /* 20px */
+  }
+
+  .status{
+    font-size: 0.975rem; /* 14px */
+    line-height: 1.35rem; /* 20px */
+  }
+
+  .contact{
+    font-size: 0.975rem; /* 14px */
+    line-height: 1.35rem; /* 20px */
+  margin-top:2%;
+  margin-bottom: -4%;
+  }
+
+  .timeK{
+    font-size: 0.85rem; /* 14px */
+    line-height: 1.1rem; /* 20px */
+  }
+
+  .extras{
+    font-size: 0.85rem; /* 16px */
+  line-height: 1.35rem; /* 24px */
+  border-radius: 10px;
+  padding: 2.5%;
+  }
+
+  .time{
+    font-size: 0.975rem; /* 14px */
+    line-height: 1.35rem; /* 20px */
+  }
+}
+
+@media(max-width:768px) and (orientation:portrait){
+  .activity1, .activity2, .activity3 {
     display: flex;
     flex-direction: row;
-    padding: 10px;
-    margin: 10px 0;
-    height: 420px;
+    padding: 0;
+    height: 300px;
     text-align: start;
     justify-content: center;
     align-items: center;
-    background-color: rgb(250, 200, 0);
-    padding-left: 7%;
+    background-size: 100% 100%;
+    background-position: 0%;
+    background-repeat: no-repeat;
+    font-family: 'ClementePDam', sans-serif;
+    transition: 300ms;
   }
 
-  .lineInfo{
-    align-items: center;
+  .actName{
+    font-size: 2.25rem; /* 36px */
+line-height: 2.5rem; /* 40px */
+}
+
+.dayText {
+  bottom: 6.5%;
+  right: 8%;
+  font-size: 1.5rem; /* 16px */
+line-height: 2rem; /* 24px */
+}
+
+  
+
+  
+
+  
+  
+}
+
+
+
+
+@media (max-width: 640px) {
+  
+
+
+
+  .mascotAct {
+    margin-right: 5%;
+    flex-basis: 40%;
+    height: 150px;
+    
+  }
+
+  .activity1, .activity2, .activity3 {
+    height: 200px;
+  }
+
+  .popUpButton {
+    margin-top: 3%;
+    margin-left: 3%;
+    width: 15px;
+    height: 15px;
   }
 
 
-  @media(max-width:768px){
-    .desc{
-      flex-basis: 60%;
-    }
-
-    .mascotAct{
-      margin-right: 5%;
-      flex-basis: 40%;
-      height: 150px;
-    }
-
-    .activity1,.activity2,.activity3{
-      height: 200px;
-    }
+  .dayText {
+    bottom: 6.5%;
+    right: 8%;
+    font-size: 1rem; /* 16px */
+line-height: 1.25rem; /* 24px */
   }
+
+  .iconDC{
+    transform: scale(1.8);
+    border-radius: 50%;
+    margin-top: 0%;
+  }
+
+  .desc {
+    display: flex;
+    flex-basis: 74%;
+    flex-direction: column;
+    margin-left: -16%;
+  
+  }
+
+  .actName{
+    font-size: 1rem; /* 16px */
+    line-height: 1.5rem; /* 24px */
+  }
+
+  .date{
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.25rem; /* 20px */
+  }
+
+  .loc{
+    font-size: 0.65rem; /* 14px */
+    line-height: 1.2rem; /* 20px */
+  }
+
+  .status{
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.25rem; /* 20px */
+  }
+
+  .contact{
+    font-size: 0.65rem; /* 14px */
+    line-height: 1.2rem; /* 20px */
+  margin-top:4%;
+  margin-bottom: -8%;
+  }
+
+  .timeK{
+    font-size: 0.75rem; /* 14px */
+    line-height: 1rem; /* 20px */
+  }
+
+  .extras{
+    font-size: 0.75rem; /* 16px */
+  line-height: 1.25rem; /* 24px */
+  border-radius: 10px;
+  padding: 2.5%;
+  }
+
+  .time{
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.25rem; /* 20px */
+  }
+}
+
+@media(max-width:450px){
+  .dayText{
+    bottom: 2%;
+  }
+}
+
+@media(max-width:385px){
+  .dayText{
+    bottom: 5%;
+  }
+}
+

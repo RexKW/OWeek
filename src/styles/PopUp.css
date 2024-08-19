@@ -1,3 +1,23 @@
+@keyframes darken{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 100%;
+    }
+}
+
+@keyframes fadeFromTop{
+    0%{
+        opacity: 0;
+       transform: translateY(-10vh);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0vh);
+    }
+}
+
 .popup{
     position: fixed;
     display: flex;
@@ -9,20 +29,75 @@
     width: 100%;
     height: 100vh;
     transition: 300ms;
+    animation: darken 300ms ease-in;
+    z-index: 5;
 }
 
 .popupInner{
-    background-color: antiquewhite;
-    padding: 5%;
+    background-color: rgb(134, 28, 28);
+    border: solid  14px rgb(210, 8, 8);
+    margin-top: 5%;
+    padding: 4%;
     position: relative;
-    animation: slideInFromTop 2s ease-out;
+    color: antiquewhite;
+    border-radius: 10px;
+    animation: fadeFromTop 0.5s ease-out;
+    text-align: start;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    max-height: 75vh;
+    max-width: 90vw;
+    overflow-y: scroll;
+    
     
 }
 
-.closeButton{
-    background-color: red;
-    position: absolute;
-    right: 2%;
-    top: 2%;
+::-webkit-scrollbar-corner{
+    background-color: rgb(134, 28, 28);
 }
 
+
+
+
+
+
+.closeButton{
+    color: #FFF372;
+    position: absolute;
+    right: 2%;
+    top: 5%;
+    width: 2vw;
+    height: 2vw;
+    border-radius: 50%;
+}
+
+.closeButtonIcon{
+    transform: scale(1.8);
+}
+
+
+
+@media(max-width:900px){
+    .popupInner{
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    .closeButton{
+        width: 8vw;
+        height: 8vw;
+    }
+}
+
+@media(max-width:900px) and (orientation:landscape){
+    .closeButton{
+        width: 3vw;
+        height: 3vw;
+    }
+}
+
+@media(max-width:640px){
+    .popupInner{
+        padding: 5%;
+        margin-top: 15%;
+    }
+
+}

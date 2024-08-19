@@ -1,26 +1,291 @@
-
-.rules{
-    background-image: url(../assets/rev\ ext\ bg.png);
-    background-size: 100vw;
+.rules {
+    background-image: url(../assets/RulesBG\ \(1\).svg);
+    background-size: 110vw;
     background-repeat: no-repeat;
-    background-position: 50% -15vh;
+    background-position: -3vw -30vh;
+    min-height: 100vh;
+    padding-bottom: 2.5rem;
+    padding-top: 5rem;
 }
 
+.leftCR {
+    position: absolute;
+    height: 140vh;
+    top: -3%;
+    left: -4%;
+    animation: slideFromLeftC 2s ease-out;
+}
 
-.ruleBox{
+.rightCR {
+    position: absolute;
+    height: 140vh;
+    top: -3%;
+    right: -4%;
+    animation: slideFromRightC 2s ease-out;
+}
+
+.leftCRM, .rightCRM {
+    display: none;
+}
+
+#select {
+    transition: 400ms;
+    position: relative;
+    z-index: 3;
+    background-color: #e0e0c4;
+    border-color: rgb(210, 8, 8);
+    color: rgb(134, 28, 28);
+    font-family: 'ClementePDai', sans-serif;
+    src: url('../fonts/ClementePDai-Regular.ttf') format('truetype');
+}
+
+.ruleSign {
+    height: 20vh;
+    position: relative;
+    z-index: 3;
+}
+
+#select:focus {
+    transition: 400ms;
+    border-color: #e8d01b;
+    box-shadow: 0 0 0 0.25rem rgba(166, 156, 21, 0.25);
+}
+
+select:focus > option:checked { 
+    background: #f8aa0e !important;
+}
+
+select.decorated option:hover {
+    box-shadow: 0 0 10px 100px #050708 inset;
+}
+
+.ruleHeader {
+    text-align: center;
+    font-family: 'ClementePDam', sans-serif;
+    src: url('../fonts/ClementePDam-Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+
+.ruleBox {
     justify-content: center;
     width: 50%;
     margin: auto;
 }
 
-
-.ruleContent{
-    background-color: gray;
+.ruleContent {
+    background-color: rgb(134, 28, 28);
+    text-align: start;
+    position: relative;
+    border: solid 18px rgb(210, 8, 8);
+    border-image-slice: 1;
+    border-radius: 30px;
+    color: rgb(245, 235, 186);
+    font-weight: 500;
+    height: 85vh;
+    -webkit-animation: glowing 2s ease-in-out infinite alternate;
+    -moz-animation: glowing 2s ease-in-out infinite alternate;
+    animation: glowing 2s ease-in-out infinite alternate;
 }
 
-@media(max-width:1000px){
-    .ruleBox{
-        width: 75%;
+
+.ruleBorder {
+    border-image-source: linear-gradient(to bottom, #d5443a, #741d1d);
+}
+
+.ruleLights {
+    border: dotted rgb(251, 254, 70) 10px;
+    width: calc(100% + 30px);
+    height: calc(100% + 30px);
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    border-radius: 30px;
+}
+
+.ruleText {
+    overflow-y: scroll;
+    position: absolute;
+    font-family: 'ClementePDam', sans-serif;
+    src: url('../fonts/ClementePDam-Bold.ttf') format('truetype');
+    height: 75vh;
+    width: 97%;
+    padding-right: 10%;
+    padding-left: 10%;
+}
+
+.rules li {
+    margin-bottom: 1vh;
+}
+
+.list-decimal {
+    font-family: 'ClementePDai', sans-serif;
+    src: url('../fonts/ClementePDai-Regular.ttf') format('truetype');
+}
+
+.ruleText::-webkit-scrollbar {
+    width: 10px;
+}
+
+.ruleText::-webkit-scrollbar-track {
+    background: #720d0d;
+    border-radius: 15px;
+}
+
+.ruleText::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(to bottom, rgba(255, 209, 47, 1), rgba(253, 247, 227, 1), rgba(255, 209, 47, 1));
+    border-radius: 15px;
+    transition: 300ms;
+}
+
+.ruleText::-webkit-scrollbar-thumb:hover {
+    background-image: linear-gradient(to bottom, rgba(255, 209, 47, 1), rgb(247, 231, 178), rgba(255, 209, 47, 1));
+    border-radius: 15px;
+    transition: 300ms;
+}
+
+@media (max-width: 1400px) {
+    .rules {
+        background-position: 45% 0vh;
+        background-size: 175vw;
+    }
+
+    .ruleText {
+        width: 95%;
+        padding-left: 5%;
+        height: 75vh;
+    }
+
+    .leftCR {
+        position: absolute;
+        height: 160vh;
+        top: -10%;
+        left: -16%;
+    }
+
+    .rightCR {
+        position: absolute;
+        height: 160vh;
+        top: -10%;
+        right: -16%;
+    }
+
+    .ruleHeader {
+        margin-top: 15%;
     }
 }
 
+@media (max-width: 1024px) and (orientation: portrait) {
+    .rules {
+        padding-bottom: 10%;
+    }
+
+    .leftCR, .rightCR {
+        display: none;
+    }
+
+    .leftCRM, .rightCRM {
+        display: initial;
+        position: absolute;
+        height: 100vh;
+        top: -3%;
+    }
+
+    .leftCRM {
+        left: -8%;
+        animation: slideFromLeftC 2s ease-out;
+    }
+
+    .rightCRM {
+        right: -8%;
+        animation: slideFromRightC 2s ease-out;
+    }
+
+    .ruleText {
+        width: 90%;
+        height: 45vh;
+    }
+
+    .ruleContent {
+        height: 55vh;
+    }
+}
+
+@media (max-width: 920px) and (orientation: landscape) {
+    .rules {
+        background-size: 125vw;
+        background-position: 40% 0%;
+    }
+
+    .ruleText {
+        width: 95%;
+        height: 70vh;
+    }
+
+    .leftCR {
+        position: absolute;
+        height: 180vh;
+        top: -5%;
+        left: -10%;
+    }
+
+    .rightCR {
+        position: absolute;
+        height: 180vh;
+        top: -5%;
+        right: -10%;
+    }
+}
+
+@media (max-width: 900px) and (orientation: portrait) {
+    .rules {
+        padding-bottom: 10%;
+    }
+
+    .leftCR, .rightCR {
+        display: none;
+    }
+
+    .ruleText {
+        height: 75vh;
+    }
+
+    .ruleContent {
+        height: 85vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .ruleBox {
+        width: 80%;
+    }
+
+    .leftCR, .rightCR {
+        display: none;
+    }
+
+    .leftCRM, .rightCRM {
+        display: initial;
+        position: absolute;
+        top: -2%;
+        height: 95vh;
+        z-index: 0;
+    }
+
+    .leftCRM {
+        left: -20%;
+    }
+
+    .rightCRM {
+        right: -20%;
+    }
+
+    .smol {
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 640px) {
+    .ruleText {
+        height: 75vh;
+    }
+}

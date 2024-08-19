@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .navbar{
     background-color: #FFFFE5;
     display: flex;
@@ -6,6 +12,8 @@
     height: 10vh;
     position: relative;
     box-shadow: #22070c1a 60px 60px 60px 60px;
+    z-index: 4;
+    
     
 }
 .left{
@@ -25,22 +33,26 @@
     display: flex;
     flex-basis: 50%;
     margin-right: 5%;
-    gap: 10%;
+    gap: 5%;
     text-decoration: none;
     color: white;
+    font-family: 'ClementePDam', sans-serif;
+    src: url('../fonts/ClementePDam-Bold.ttf') format('truetype');
 }
 
 .stripe{
-    background-image: linear-gradient(#A7213C, #B82038);
+    background-image: linear-gradient(#881b31, #B82038);
     height: 11vh;
     width: 150px;
 }
 
 .bg{
+    top: 0;
     height: 10vh;
     overflow-x: hidden;
     z-index: 5;
-    background-color: #FFFFE5;
+    background-image: linear-gradient(#e3e3c7, #FFFFE5);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
 .burger{
@@ -50,20 +62,23 @@
 }
 .right a{
     text-decoration: none;
-    background-image: linear-gradient(to right, rgba(255, 209, 47, 1),rgba(253, 247, 227, 1),rgba(255, 209, 47, 1));
-    border-radius: 15px;
+    background-image: linear-gradient(to right, #fab035,#fede75,#fab035);
+    border: 3px solid #e0523b;
+    border-radius: 40px;
     transition: 0.5s;
-    padding: 5%;
-    padding-left: 10%;
-    padding-right: 10%;
-    color: black;
+    padding: 8px;
+    padding-left: 25px;
+    padding-right: 25px;
+    color: rgb(10, 10, 10);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     font-weight:500;
+    margin-bottom: 5%;
+    font-size: larger;
 }
 
+
 .right a:hover{
-    background-color: azure;
-    color: rgb(245, 113, 18);
+    color: rgb(251, 239, 212);
 }
 
 .navbar button{
@@ -78,6 +93,8 @@
     font: 40px;
 }
 
+
+
 .drape{
     width: 235px;
     height: 200px;
@@ -85,17 +102,26 @@
     border-radius: 50%;
     margin-top: -1.8%;
     z-index: 2;
-    background-image: linear-gradient(#581111, #b82543);
+    background-image: linear-gradient(#450d0d 60%, #c8203a);
     box-shadow: black;
     position: relative;
+    
+}
+
+.drape{
+    top: 4vh;
 }
 
 .navMascot{
     width: 170px;
-    height: 210px;
-    background-color: black;
+    height: 40vh;
+    background-image: url(../assets/weBareChicks.png);
+    background-size: auto 35vh;
+    background-repeat: no-repeat;
+    background-position: 50% 0vh;
+    transform: rotate(-5deg);
     position: absolute;
-    bottom: 15%;
+    bottom: 3vh;
 }
 
 
@@ -106,13 +132,16 @@
     background-image: linear-gradient(#94102a, #B82038);
     padding: 25%;
     width: 200px;
+    
     padding-top: 100%;
-    top: 200%;
+    top: 214%;
     flex-direction: column;
-    left: -30vw;
+    left: -150px;
     align-items: center;
     float: right;
     height: 100vh;
+    font-family: 'ClementePDam', sans-serif;
+    src: url('../fonts/ClementePDam-Bold.ttf') format('truetype');
 }
 
 
@@ -133,17 +162,18 @@
 
 .navbar .hidden a{
     text-decoration: none;
-    background-image: linear-gradient(to right, rgba(255, 209, 47, 1),rgba(253, 247, 227, 1),rgba(255, 209, 47, 1));
-    border-radius: 15px;
+    background-image: linear-gradient(to right, #fab035,#fede75,#fab035);
+    border: 3px solid #e0523b;
+    border-radius: 40px;
     transition: 0.5s;
     margin-top: 5%;
     margin-left: 4%;
-    padding: 10%;
+    padding: 9%;
     width: 150px;
     
 }
 
-.lights{
+.lights {
     width: 30px;
     height: 30px;
     background-color: #FFF372;
@@ -151,8 +181,21 @@
     position: absolute;
     bottom: 4%;
     left: -20%;
-    box-shadow: 0 0 24px 0 rgba(245, 222, 107, 0.521), 0 0 40px 0 rgba(245, 222, 107, 0.19);
-}
+    -webkit-animation: glowing 2s ease-in-out infinite alternate;
+    -moz-animation: glowing 2s ease-in-out infinite alternate;
+    animation: glowing 2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes glowing {
+    from {
+      box-shadow: 0 0 1.25px #fff3b6, 0 0 2.5px #fff3b6, 0 0 3.75px rgb(255, 179, 0), 0 0 5px rgb(255, 213, 0), 0 0 6.25px #e6a100, 0 0 7.5px #e6a100, 0 0 8.75px #e6a100;
+    }
+    to {
+      box-shadow: 0 0 5px #fff3b6, 0 0 7.5px #ffb24d, 0 0 10px #ffb24d, 0 0 12.5px #ffb24d, 0 0 15px #ffb24d, 0 0 17.5px #ffb24d, 0 0 20px #ffb24d;
+    }
+  }
+
+  
 
 @keyframes slideIn{
     0%{
@@ -194,26 +237,132 @@
         opacity: 0%;
         display: none;
     }
+
+
 }
 
-@media (max-width:1200px){
+.drapes{
+    top: 1vh;
+}
+
+@media (max-width:1600px){
     .bg{
         width: 900vw;
     }
+
+
+    .right a{
+        font-size:20px;
+        margin-bottom: 5%;
+    }
+
+    .drapes{
+        top: -5vh;
+    }
+
+
 }
 
-@media (max-width:768px){
+@media (max-width:1500px){
+    .drapes{
+        top: -2vh;
+    }
+}
+
+@media(max-width:1200px){
+    .right a{
+        font-size: large;
+    }
+}
+
+@media(max-width:1024px){
+    .right a{
+        font-size: large;
+        margin-bottom: 5%;
+    }
+
+    .drapes{
+        top: 0vh;
+    }
+}
+
+@media(max-width:1024px) and (orientation:portrait){
+    .right a{
+        font-size: larger;
+        margin-bottom: 10%;
+        margin-right: -5%;
+    }
+
+    .drapes{
+        top: 1vh;
+    }
+
+    
+}
+
+@media(max-width:920px) and (orientation:landscape){
+    .drapes{
+        top: 1vh;
+    }
+
+    .bg, .stripe{
+        height: 20vh;
+    }
+
+    .right a{
+        margin-bottom: 0%;
+        font-size:smaller;
+        margin-right: -3%;
+    }
+}
+
+@media(max-width:900px) and (orientation:landscape){
+    .drapes{
+        top: -10vh;
+    }
+}
+
+@media(max-width:900px) and (orientation:portrait){
+    .right a{
+        font-size:medium;
+        margin-bottom: 10%;
+        margin-right: -7%;
+    }
+
+    .drapes{
+        top: 0vh;
+    }
+
+    
+}
+
+@media(max-width:800px) and (orientation:landscape){
+    .drapes{
+        top: -5vh;
+    }
+}
+
+
+
+
+@media (max-width:640px){
+    .drapes{
+        top:-4vh;
+    }
     .navbar button{
         display: initial;
         transition: 2s;
     }
 
-    .navbar .hidden{
-        left:-27vw;
-    }
-
     .bg{
         width: 1350vw;
+    }
+
+    .lights{
+        -webkit-animation: none;
+    -moz-animation:none;
+    animation: none;
+    box-shadow: 0 0 5px #fff3b6, 0 0 7.5px #ffb24d, 0 0 10px #ffb24d, 0 0 12.5px #ffb24d, 0 0 15px #ffb24d, 0 0 17.5px #ffb24d, 0 0 20px #ffb24d;
     }
 
     .navbar .right{
@@ -244,20 +393,61 @@
     .Front #close{
         flex-direction: column;
         transition: 2s;
-        animation: slideOut 0.5s;
+        animation: slideOut 0.75s;
+    }
+
+    .drape{
+        width: 235px;
+        height: 200px;
+        margin: -1%;
+        border-radius: 50%;
+        margin-top: -1.8%;
+        z-index: 2;
+        background-image: linear-gradient(#450d0d 60%, #c8203a);
+        box-shadow: black;
+        position: relative;
+    }
+
+    .stripe{
+        background-image: linear-gradient(#881b31, #B82038);
+        height: 11vh;
+        width: 150px;
+    }
+
+    .burger{
+        transform: scale(1.8);
     }
 
     
     
 }
 
-@media(max-width:420px){
+
+
+
+
+
+
+@media(max-width:450px){
     .bg{
         width: 1800vw;
     }
 
-    .navbar .hidden{
-        left:-32.5vw;
+    .drapes{
+        top: -2vh;
+    }
+
+
+    @media(max-width:380px){
+        .drapes{
+            top: -5vh;
+        }
+    }
+
+    @media(max-width:360px){
+        .drapes{
+            top: -3vh;
+        }
     }
 
 }

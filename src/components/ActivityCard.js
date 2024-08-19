@@ -1,164 +1,88 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
-import PopUp from './PopUp';
 import '../styles/ActivityCard.css';
+import { PiShirtFoldedLight } from "react-icons/pi";
 
-function ActivityCard({ name, type, timeStart, timeEnd }) {
-  const now = new Date();
+function ActivityCard({ day, dressCode, name, type, date, timeStart, timeEnd, timeStart2, timeEnd2, penugasan, ketentuan, location, contact, onOpenPopUp }) {
   const timeStartString = timeStart.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   const timeEndString = timeEnd.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-  const [buttonPopUp, setButtonPopUp] = useState(false);
-  const getStatus = () => {
-    if (timeStart < now && timeEnd > now) {
-      return 'Ongoing';
-    } else if (timeStart > now) {
-      return 'Upcoming';
-    } else if (now > timeEnd) {
-      return 'Passed';
+
+  const renderDayText = () => (
+    day.split('').map((char, index) => (
+      <span key={index}>
+        {char === ' ' ? <><br /></> : char}
+      </span>
+    ))
+  );
+
+  const renderTime = () => {
+    if (!timeStart2) {
+      return (
+        <div>
+          <p className="time md:text-3xl">{timeStartString} - {timeEndString}</p>
+        </div>
+      );
+    } else {
+      const timeStartString2 = timeStart2.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      const timeEndString2 = timeEnd2.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      return (
+        <div>
+          <p className="timeK">Kloter 1: {timeStartString} - {timeEndString}</p>
+          <p className="timeK">Kloter 2: {timeStartString2} - {timeEndString2}</p>
+        </div>
+      );
     }
   };
 
-
-  if(type===1){
-    if(getStatus() === 'Ongoing'){
-      return (
-        <div className="activity1 w-full carousel-item" data-carousel-item="active">
-          <div className='desc'>
-            <p className='text-3xl md:text-5xl'>{name}</p>
-            <div className='lineInfo flex'>
-              <p className='text-xl md:text-3xl'>{getStatus()}</p>
-              <button className='popUpButton' onClick={() => setButtonPopUp(true)}>hi</button>
-            </div>
-            <p className='text-2xl md:text-4xl'>{timeStartString} - {timeEndString}</p>
+  const renderActivityCard = (activityClass) => (
+    <div className="wrapperCard" loading="lazy">
+      <div className={`${activityClass} w-full carousel-item`} data-carousel-item="active">
+        <div className="desc">
+          <div className="flex">
+            {}
           </div>
-          <div className='mascotAct'>
-
+          <p className="actName " loading="lazy">{name}</p>
+          <p className='date' loading="lazy">{date}</p>
+          <p className='loc' loading="lazy">{location}</p>
+          {renderTime()}
+          <div className='mt-2 md:mt-3'>
+            <button onClick={() => onOpenPopUp('penugasan', { penugasan })} className='extras'>Penugasan</button>
+            <button onClick={() => onOpenPopUp('ketentuan', { ketentuan })} className='ml-4 extras'>Ketentuan</button>
           </div>
-          <PopUp trigger={buttonPopUp} setTrigger={setButtonPopUp}>
-            <h1>Info</h1>
-          </PopUp>
-            
+          <p className='contact' loading="lazy">{contact}</p>
         </div>
-      )
+        <p className="dayText flex-col">
+          {renderDayText()}
+          <button className="infoSchedule" onClick={() => onOpenPopUp('dressCode', { dressCode })}>
+              <PiShirtFoldedLight className='iconDC' loading="lazy"/>
+            </button>
+        </p>
+      </div>
+    </div>
+  );
 
-    }else{
-      return(
-        <div className="activity1 w-full carousel-item" data-carousel-item="active">
-          <div className='desc'>
-            <p className='text-3xl md:text-5xl'>{name}</p>
-            <div className='lineInfo flex'>
-              <p className='text-xl md:text-3xl'>{getStatus()}</p>
-              <button className='popUpButton' onClick={() => setButtonPopUp(true)}></button>
-            </div>
-            <p className='text-2xl md:text-4xl'>{timeStartString} - {timeEndString}</p>
-          </div>
-          <div className='mascotAct'>
-
-          </div>
-          <PopUp className='absolute' trigger={buttonPopUp} setTrigger={setButtonPopUp}>
-            <p className='text-3xl'>{name}</p>
-            <p>Lorem ipsum i dont know what to put here lol. Imma just yap in this paragraph</p>
-          </PopUp>
-        </div>
-    )
-    }
-    
-  }else if(type===2){
-    if(getStatus()=== 'Ongoing'){
-      return (
-        <div className="activity2 w-full carousel-item" data-carousel-item="active">
-          <div className='desc'>
-            <p className='text-3xl md:text-5xl'>{name}</p>
-            <div className='lineInfo flex'>
-              <p className='text-xl md:text-3xl'>{getStatus()}</p>
-              <button className='popUpButton' onClick={() => setButtonPopUp(true)}></button>
-            </div>
-            <p className='text-2xl md:text-4xl'>{timeStartString} - {timeEndString}</p>
-          </div>
-          <div className='mascotAct'>
-
-          </div>
-          <PopUp className='absolute' trigger={buttonPopUp} setTrigger={setButtonPopUp}>
-            <p className='text-3xl'>{name}</p>
-            <p>Lorem ipsum i dont know what to put here lol. Imma just yap in this paragraph</p>
-          </PopUp>
-        </div>
-      )
-
-    }else{
-      return(
-        <div className="activity2 w-full carousel-item" data-carousel-item="active">
-          <div className='desc'>
-            <p className='text-3xl md:text-5xl'>{name}</p>
-            <div className='lineInfo flex'>
-              <p className='text-xl md:text-3xl'>{getStatus()}</p>
-              <button className='popUpButton' onClick={() => setButtonPopUp(true)}></button>
-            </div>
-            <p className='text-2xl md:text-4xl'>{timeStartString} - {timeEndString}</p>
-          </div>
-          <div className='mascotAct'>
-
-          </div>
-          <PopUp className='absolute' trigger={buttonPopUp} setTrigger={setButtonPopUp}>
-            <p className='text-3xl'>{name}</p>
-            <p>Lorem ipsum i dont know what to put here lol. Imma just yap in this paragraph</p>
-          </PopUp>
-        </div>
-    )
-    }
-  }else if(type===3){
-    if(getStatus()=== 'Ongoing'){
-      return (
-        <div className="activity3 w-full carousel-item" data-carousel-item="active">
-          <div className='desc'>
-            <p className='text-3xl md:text-5xl'>{name}</p>
-            <div className='lineInfo flex'>
-              <p className='text-xl md:text-3xl'>{getStatus()}</p>
-              <button className='popUpButton' onClick={() => setButtonPopUp(true)}></button>
-            </div>
-            <p className='text-2xl md:text-4xl'>{timeStartString} - {timeEndString}</p>
-          </div>
-          <div className='mascotAct'>
-
-          </div>
-          <PopUp className='absolute' trigger={buttonPopUp} setTrigger={setButtonPopUp}>
-            <p className='text-3xl'>{name}</p>
-            <p>Lorem ipsum i dont know what to put here lol. Imma just yap in this paragraph</p>
-          </PopUp>
-        </div>
-      )
-
-    }else{
-      return(
-        <div className="activity3 w-full carousel-item" data-carousel-item="active">
-          <div className='desc'>
-            <p className='text-3xl md:text-5xl'>{name}</p>
-            <div className='lineInfo flex'>
-              <p className='text-xl md:text-3xl'>{getStatus()}</p>
-              <button className='popUpButton' onClick={() => setButtonPopUp(true)}></button>
-            </div>
-            <p className='text-2xl md:text-4xl'>{timeStartString} - {timeEndString}</p>
-          </div>
-          <div className='mascotAct'>
-
-          </div>
-          <PopUp className='absolute' trigger={buttonPopUp} setTrigger={setButtonPopUp}>
-            <p className='text-3xl'>{name}</p>
-            <p>Lorem ipsum i dont know what to put here lol. Imma just yap in this paragraph</p>
-          </PopUp>
-        </div>
-    )
-    }
-  }
-
+  return (
+    <>
+      {type === 1 && renderActivityCard("activity1")}
+      {type === 2 && renderActivityCard("activity2")}
+      {type === 3 && renderActivityCard("activity3")}
+    </>
+  );
 }
 
 ActivityCard.propTypes = {
+  day: PropTypes.string.isRequired,
+  dressCode: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
+  type: PropTypes.number.isRequired,
+  date: PropTypes.string.isRequired,
   timeStart: PropTypes.instanceOf(Date).isRequired,
   timeEnd: PropTypes.instanceOf(Date).isRequired,
+  penugasan: PropTypes.string.isRequired,
+  ketentuan: PropTypes.string.isRequired,  
+  location: PropTypes.string.isRequired,
+  contact: PropTypes.string.isRequired,
+  onOpenPopUp: PropTypes.func.isRequired
 };
 
 export default ActivityCard;

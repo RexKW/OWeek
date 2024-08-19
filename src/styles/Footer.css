@@ -1,4 +1,122 @@
 .footer{
-    background-color: gray;
-    height: 10vh;
+    background-color: rgb(93, 8, 8);
+    height: 20vh;
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    color: rgb(251, 239, 212);
+}
+
+.left{
+    justify-content: start;
+}
+
+.middle{
+    justify-content: center;
+}
+
+#acqLogoF{
+    height: auto;
+    width: 20vw;
+    opacity: 0.9;
+    margin-left: 5%;
+}
+
+#ucLogo, #oLogo{
+    height: 12vh;
+    width: auto;
+    opacity: 0.9;
+}
+
+
+
+#oLogo{
+    margin-left: 5%;
+}
+
+.footer a{
+    background-color: transparent;
+    background-image: none;
+    box-shadow: none;
+    border: none;
+}
+
+#line{
+    height: auto;
+    width: 12vh;
+}
+
+
+
+#ig{
+    width: 15vh;
+    height: auto;
+}
+
+.footer a:hover{
+    box-shadow: none;
+}
+
+.footer .right{
+    text-align: end;
+    justify-content: start;
+    align-items: end;
+    display: flex;
+    opacity: 0.9;;
+    margin-right:2vw;
+}
+
+@media(max-width:1024px){
+    #ucLogo, #oLogo{
+        height: 8vh;
+    }
+
+    #acqLogoF{
+        width: 55vw;
+        height: auto;
+    }
+
+    #line{
+        height: auto;
+        width: 5vh;
+    }
+
+    .footer .right{
+        font-size: 1rem;
+        line-height: 1.25rem;
+    }
+}
+
+@media(max-width:920px) and (orientation:landscape){
+    #acqLogoF{
+        width: 40vw;
+        height: auto;
+    }
+
+    .footer .right{
+        font-size: 0.5rem;
+        line-height: 0.75rem;
+    }
+}
+
+@media(max-width:640px){
+    #ucLogo, #oLogo{
+        height: 7vh;
+    }
+
+    #acqLogoF{
+        width: 55vw;
+        height: auto;
+    }
+
+    #line{
+        height: auto;
+        width: 5vh;
+    }
+
+    .footer .right{
+        font-size: 0.5rem;
+        line-height: 0.75rem;
+    }
 }

@@ -1,7 +1,43 @@
-@keyframes slideInFromTop{
+@keyframes slideInFromBottomLate{
     0%{
-        transform: translateY(-7vw);
-        opacity: 0%;
+        transform: translateY(100vh);
+    }
+    50%{
+        transform: translateY(100vh);
+        opacity: 80%;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 100%;
+    }
+}
+
+@keyframes slideFromLeftC{
+    0%{
+        transform: translateX(-100vw);
+    }
+    50%{
+        transform: translateX(0vw);
+    }
+
+}
+
+@keyframes slideFromRightC{
+    0%{
+        transform: translateX(100vw);
+    }
+    50%{
+        transform: translateX(0vw);
+    }
+
+}
+
+
+
+@keyframes slideInFromBottom{
+    0%{
+        transform: translateY(100vh);
+        opacity: 80%;
     }
     50%{
         transform: translateY(0);
@@ -9,27 +45,163 @@
     }
 }
 
+@keyframes lightR{
+    0%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(-5deg);
+        transform-origin: top right;
+    }
+
+    100%{
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes lightP{
+    0%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(5deg);
+        transform-origin: top right;
+    }
+
+    100%{
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes lightB{
+    0%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(-5deg);
+        transform-origin: top left;
+    }
+
+    100%{
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes lightPr{
+    0%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(5deg);
+        transform-origin: top left;
+    }
+
+    100%{
+        transform: rotate(0deg);
+    }
+}
 
 .about{
     justify-content: center;
     display: flex;
     flex-direction: row;
+    overflow-y: hidden;
     height: 100vh;
-    position: relative;
-    z-index: 0;
-    background-color: #631424;
+    background-image: url(../assets/BGCUTHOMEV2.svg);
+    background-size: 100vw auto;
+    background-position: 0% 5%;
 }
 
-.aboutBox{
-    margin: auto;
-    color: white;
-    padding: 1%;
-    position: relative;
-    background-color: gray;
-    margin-left: 5%;
-    text-align: start;
-    width: 50%;
-    animation: slideInFromTop 2s ease-out;
+.lightR{
+    position: absolute;
+    right: 5%;
+    height: 75vh;
+    animation: lightR infinite 5s ease-in-out;
+}
+.lightP{
+    position: absolute;
+    right: 15%;
+    height: 75vh;
+    animation: lightP infinite 5s ease-in-out;
+}
+
+.lightB{
+    position: absolute;
+    left: 15%;
+    height: 75vh;
+    animation: lightB infinite 5s ease-in-out;
+}
+
+.lightPr{
+    position: absolute;
+    left: 5%;
+    height: 75vh;
+    animation: lightPr infinite 5s ease-in-out;
+}
+
+.leftCurtainA{
+    position: absolute;
+    left: -8%;
+    top: -12%;
+    height: 140vh;
+    animation: slideFromLeftC 2s ease-out;
+}
+
+.rightCurtainA{
+    position: absolute;
+    right: -8%;
+    top: -12%;
+    height: 140vh;
+    animation: slideFromRightC 2s ease-out;
+}
+
+.topCurtainA{
+    top: -4%;
+    position: absolute;
+}
+
+.leftCurtainAM,.rightCurtainAM{
+    display: none;
+}
+
+.envBack{
+    position: absolute;
+    bottom: 15%;
+    width: 35vw;
+    animation: slideInFromBottom 2s ease-out;
+}
+
+.aboutLetter{
+    position: absolute;
+    width: 28vw;
+    bottom: 25%;
+    animation: slideInFromBottomLate 2s ease-out;
+    background-color: #FFF372;
+    -webkit-animation: glowingL 2s ease-in-out infinite alternate;
+    -moz-animation: glowingL 2s ease-in-out infinite alternate;
+    animation: slideInFromBottomLate 1s ease-out, glowingL 2s ease-in-out infinite alternate;
+}
+
+
+
+@keyframes glowingL {
+    from {
+        box-shadow: 0 0 1.25px #fff2e5, 0 0 2.5px #ffe6cc, 0 0 3.75px #ffdbb3, 0 0 5px #ffd199, 0 0 6.25px #ffc680, 0 0 7.5px #ffbb66, 0 0 8.75px #ffb04d;
+    }
+    to {
+        box-shadow: 0 0 5px #fff2e5, 0 0 7.5px #ffdbb3, 0 0 10px #ffd199, 0 0 12.5px #ffc680, 0 0 15px #ffbb66, 0 0 17.5px #ffb04d, 0 0 20px #ffa533;
+    }
+}
+
+
+
+
+.envFront{
+    position: absolute;
+    bottom: 15%;
+    width: 71.5vw;
+    left: 13.7%;
+    animation: slideInFromBottom 2s ease-out;
 }
 
 .galleryVertical{
@@ -38,34 +210,260 @@
     position: absolute;
     right: -15%;
     height: 100vh;
+    top: -5%;
 }
 
 .galleryHorizontal{
     display: none;
 }
 
+.envBackM,.envFrontM,.aboutLetterM{
+    display: none;
+}
+
+@media(max-width:1400px){
+    .leftCurtainA{
+        position: absolute;
+        left: -10%;
+        top: -12%;
+        height: 140vh;
+    }
+    
+    .rightCurtainA{
+        position: absolute;
+        right: -10%;
+        top: -12%;
+        height: 140vh;
+    }
+
+    .aboutLetter{
+        position: absolute;
+        width: 43vw;
+
+    }
+
+    .envBack{
+        position: absolute;
+        width: 50vw;
+        animation: slideInFromBottom 2s ease-out;
+    }
+
+    .envFront{
+        position: absolute;
+        min-width: 102vw;
+        left: -2%;
+        animation: slideInFromBottom 2s ease-out;
+    }
+}
+
+@media(max-width:1024px) and (orientation:portrait){
+    .leftCurtainA,.rightCurtainA,.aboutLetter,.envBack,.envFront{
+        display: none;
+    }
+
+    .about{
+        height: 110vh;
+    }
+
+    .leftCurtainAM,.rightCurtainAM{
+        display: initial;
+        position: absolute;
+        height: 100vh;
+        top: -10%;
+    }
+
+    .leftCurtainAM{
+        left: -10%;
+        animation: slideFromLeftC 2s ease-out;
+    }
+
+    .rightCurtainAM{
+        right: -10%;
+        animation: slideFromRightC 2s ease-out;
+    }
+
+    .envBackM,.envFrontM,.aboutLetterM{
+        display: initial;
+        position: absolute;
+        bottom: 0;
+    }
+
+    .envFrontM{
+        left: 0%;
+        bottom: 10%;
+        width: 100vw;
+    }
+    .aboutLetterM{
+        width: 70vw;
+        left: 15vw;
+        bottom: 20%;
+
+    }
+
+    .envBackM{
+        width: 78.5vw;
+        left: 11.5vw;
+        bottom: 10%;
+    }
+}
+
+@media(max-width:900px){
+    .aboutLetter{
+        position: absolute;
+        width: 63vw;
+        bottom: 13%;
+
+    }
+
+    .envBack{
+        position: absolute;
+        bottom: -2%;
+        width: 70vw;
+        animation: slideInFromBottom 2s ease-out;
+    }
+
+    .envFront{
+        position: absolute;
+        bottom: -2%;
+        min-width: 142vw;
+        left: -22%;
+        animation: slideInFromBottom 2s ease-out;
+    }
+
+    .about{
+        height: 100vh;
+    }
+    .leftCurtainA,.rightCurtainA{
+        display: none;
+    }
+
+    .leftCurtainAM,.rightCurtainAM{
+        display: initial;
+        position: absolute;
+        top: -5%;
+        height: 90vh;
+    }
+
+    .leftCurtainAM{
+        left: -9%;
+        animation: slideFromLeftC 2s ease-out;
+    }
+
+    .rightCurtainAM{
+        right: -9%;
+        animation: slideFromRightC 2s ease-out;
+    }
+
+}
+
+@media(max-width:920px) and (orientation:landscape) {
+    .about{
+        height: 220vh;
+        overflow-y: auto;
+    }
+}
+
+
+
 @media (max-width:600px) {
     .about{
-        flex-direction: column;
+        flex-direction: row;
+        height: 90vh;
     }
 
+
+    .leftCurtainA{
+        display: none;
+    }
     
-
-    .gallery{
-        width: 90%;
+    .rightCurtainA{
+        display: none;
+    }
+    
+    .topCurtainA{
+        display: none;
     }
 
-    .aboutBox{
-        width: 90%;
+    .envBack,.envFront,.aboutLetter{
+        display: none;
     }
 
-    .galleryHorizontal{
-        padding-top: 15%;
-        margin-top: 10%;
+    .envBackM, .envFrontM, .aboutLetterM{
         display: initial;
     }
 
-    .galleryVertical{
-        display: none;
+    .leftCurtainAM{
+        left: -15%;
+    }
+    .rightCurtainAM{
+        right: -15%;
+    }
+
+    .envBackM{
+        width: 80vw;
+        position: absolute;
+        bottom: 15%;
+        animation: slideInFromBottom 2s ease-out;
+    }
+
+    .aboutLetterM{
+        position: absolute;
+        width: 73.5vw;
+        bottom: 25%;
+        animation: slideInFromBottomLate 2s ease-out;
+    background-color: #FFF372;
+    -webkit-animation: glowingL 2s ease-in-out infinite alternate;
+    -moz-animation: glowingL 2s ease-in-out infinite alternate;
+    animation: slideInFromBottomLate 1s ease-out, glowingL 2s ease-in-out infinite alternate;
+    }
+
+    .envFrontM{
+        position: absolute;
+        min-width: 100vw;
+        bottom: 15%;
+        left: -1%;
+        animation: slideInFromBottom 2s ease-out;
+    }
+
+    .lightR{
+        position: absolute;
+        right: 0%;
+        height: 75vh;
+        animation: lightR infinite 5s ease-in-out;
+    }
+    .lightP{
+        position: absolute;
+        right: 30%;
+        top: 5%;
+        height: 75vh;
+        animation: lightP infinite 5s ease-in-out;
+    }
+    
+    .lightB{
+        position: absolute;
+        left: 30%;
+        top: 5%;
+        height: 75vh;
+        animation: lightB infinite 5s ease-in-out;
+    }
+    
+    .lightPr{
+        position: absolute;
+        left: 0%;
+        height: 75vh;
+        animation: lightPr infinite 5s ease-in-out;
+    }
+
+}
+
+@media (max-width:550px){
+    .about{
+        height: 120vh;
+    }
+}
+
+@media(max-width:520px){
+    .about{
+        height: 90vh;
     }
 }
