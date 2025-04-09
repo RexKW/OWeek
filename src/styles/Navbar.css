@@ -181,9 +181,7 @@
     position: absolute;
     bottom: 4%;
     left: -20%;
-    -webkit-animation: glowing 2s ease-in-out infinite alternate;
-    -moz-animation: glowing 2s ease-in-out infinite alternate;
-    animation: glowing 2s ease-in-out infinite alternate;
+
   }
   
   @keyframes glowing {
